@@ -18,7 +18,6 @@ namespace TrackerLibrary
                 SqlConnector sql = new SqlConnector();
                 Connection = sql;
             }
-
             else if (db == DatabaseType.TextFile)
             {
                 // TODO -> Set up the text file Connector properly
