@@ -104,6 +104,11 @@ namespace TrackerUI
             }
         }
 
+        private void createTeamButton_Click(object sender, EventArgs e)
+        {
+
+        }
+
         private bool ValidateForm()
         {
             if (firstNameValue.Text.Length == 0)
