@@ -11,6 +11,7 @@ namespace TrackerLibrary.DataAccess
     {
         private const string PrizesFile = "PrizeModels.csv";
         private const string PeopleFile = "PersonModels.csv";
+        private const string TeamsFile = "TeamModels.csv";
 
         // TODO -> Make the CreatePrize method actually save to the text file
         /// <summary>
@@ -50,10 +51,8 @@ namespace TrackerLibrary.DataAccess
         /// <returns>The person information, including the unique identifier.</returns>
         public PersonModel CreatePerson(PersonModel model)
         {
-            // Load the text file and convert the text to List<PrizeModel>
-            List<PersonModel> people = PeopleFile.FullFilePath().LoadFile().ConvertToPeopleModels();
+            List<PersonModel> people = PeopleFile.FullFilePath().LoadFile().ConvertToPersonModels();
 
-            // Find the max ID
             int currentId = 1;
 
             if (people.Count > 0)
@@ -63,11 +62,8 @@ namespace TrackerLibrary.DataAccess
             }
             model.Id = currentId;
 
-            // Add the new record with the new ID (max + 1)
             people.Add(model);
 
-            // Convert the prizes to List<string>
-            // Save the List<string> to the text file
             people.SaveToPeopleFile(PeopleFile);
 
             return model;
@@ -75,12 +71,27 @@ namespace TrackerLibrary.DataAccess
 
         public List<PersonModel> GetPerson_All()
         {
-            return PeopleFile.FullFilePath().LoadFile().ConvertToPeopleModels();
+            return PeopleFile.FullFilePath().LoadFile().ConvertToPersonModels();
         }
 
-        public TeamModel CreateTeam(TeamModel team)
+        public TeamModel CreateTeam(TeamModel model)
         {
-            throw new NotImplementedException();
+            List<TeamModel> teams = TeamsFile.FullFilePath().LoadFile().ConvertToTeamModels(PeopleFile);
+
+            int currentId = 1;
+
+            if (teams.Count > 0)
+            {
+                currentId = teams.OrderByDescending(x => x.Id).First().Id + 1;
+            }
+
+            model.Id = currentId;
+
+            teams.Add(model);
+
+            teams.SaveToTeamFile(TeamsFile);
+
+            return model;
         }
     }
 }

@@ -50,6 +50,7 @@ namespace TrackerUI
         {
 
         }
+
         private void addMemberButton_Click(object sender, EventArgs e)
         {
             PersonModel p = (PersonModel)selectTeamMemberDropDown.SelectedItem;
@@ -106,7 +107,14 @@ namespace TrackerUI
 
         private void createTeamButton_Click(object sender, EventArgs e)
         {
+            TeamModel t = new TeamModel();
 
+            t.TeamName = teamNameValue.Text;
+            t.TeamMembers = selectedTeamMembers;
+
+            t = GlobalConfig.Connection.CreateTeam(t);
+
+            // TODO -> If we aren't closing this form after creation, reset the form
         }
 
         private bool ValidateForm()
