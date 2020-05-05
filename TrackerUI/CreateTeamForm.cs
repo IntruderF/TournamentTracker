@@ -46,11 +46,6 @@ namespace TrackerUI
             teamMembersListBox.DisplayMember = "FullName";
         }
 
-        private void selectTeamMemberDropDown_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
         private void addMemberButton_Click(object sender, EventArgs e)
         {
             PersonModel p = (PersonModel)selectTeamMemberDropDown.SelectedItem;
