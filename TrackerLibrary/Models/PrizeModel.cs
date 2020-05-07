@@ -10,18 +10,22 @@ namespace TrackerLibrary.Models
         /// The unique identifier for the prize.
         /// </summary>
         public int Id { get; set; }
+        
         /// <summary>
         /// Represents the number of place.
         /// </summary>
         public int PlaceNumber { get; set; }
+        
         /// <summary>
         /// Represents the place name.
         /// </summary>
         public string PlaceName { get; set; }
+        
         /// <summary>
         /// Represents the prize amount.
         /// </summary>
         public decimal PrizeAmount { get; set; }
+        
         /// <summary>
         /// Represent the prize percentage.
         /// </summary>

@@ -4,6 +4,7 @@ using System.Text;
 using TrackerLibrary.Models;
 using TrackerLibrary.DataAccess.TextHelpers;
 using System.Linq;
+using System.IO;
 
 namespace TrackerLibrary.DataAccess
 {
@@ -12,6 +13,7 @@ namespace TrackerLibrary.DataAccess
         private const string PrizesFile = "PrizeModels.csv";
         private const string PeopleFile = "PersonModels.csv";
         private const string TeamsFile = "TeamModels.csv";
+        private const string TournamentsFile = "TournamentModels.csv";
 
         // TODO -> Make the CreatePrize method actually save to the text file
         /// <summary>
@@ -92,6 +94,27 @@ namespace TrackerLibrary.DataAccess
             teams.SaveToTeamFile(TeamsFile);
 
             return model;
+        }
+
+        public void CreateTournament(TournamentModel model)
+        {
+            List<TournamentModel> tournaments = TournamentsFile
+                .FullFilePath()
+                .LoadFile()
+                .ConvertToTournamentModels(TeamsFile, PeopleFile, PrizesFile);
+
+            int currentId = 1;
+
+            if (tournaments.Count > 0)
+            {
+                currentId = tournaments.OrderByDescending(x => x.Id).First().Id + 1;
+            }
+
+            model.Id = currentId;
+
+            tournaments.Add(model);
+
+            tournaments.SaveToTournamentFile(TournamentsFile);
         }
 
         public List<TeamModel> GetTeam_All()
