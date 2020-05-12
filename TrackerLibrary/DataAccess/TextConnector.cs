@@ -14,6 +14,8 @@ namespace TrackerLibrary.DataAccess
         private const string PeopleFile = "PersonModels.csv";
         private const string TeamsFile = "TeamModels.csv";
         private const string TournamentsFile = "TournamentModels.csv";
+        private const string MatchupsFile = "MatchupModels.csv";
+        private const string MatchupEntriesFile = "MatchupEntryModels.csv";
 
         // TODO -> Make the CreatePrize method actually save to the text file
         /// <summary>
@@ -111,6 +113,8 @@ namespace TrackerLibrary.DataAccess
             }
 
             model.Id = currentId;
+
+            model.SaveRoundsToFile(MatchupsFile, MatchupEntriesFile);
 
             tournaments.Add(model);
 

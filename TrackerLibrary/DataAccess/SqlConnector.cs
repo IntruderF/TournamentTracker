@@ -145,7 +145,7 @@ namespace TrackerLibrary.DataAccess
                     m.Add("@MatchupRound", matchup.MatchupRound);
                     m.Add("@id", 0, dbType: DbType.Int32, direction: ParameterDirection.Output);
 
-                    connection.Execute("dbo.spMatchup_Insert", m, commandType: CommandType.StoredProcedure);
+                    connection.Execute("dbo.spMatchups_Insert", m, commandType: CommandType.StoredProcedure);
 
                     matchup.Id = m.Get<int>("@id");
 
@@ -153,11 +153,28 @@ namespace TrackerLibrary.DataAccess
                     {
                         var me = new DynamicParameters();
                         me.Add("@MatchupId", matchup.Id);
-                        me.Add("@ParentMatchupId", entry.ParentMatchup);
-                        me.Add("@TeamCompeting", entry.TeamCompeting);
+                        
+                        if (entry.ParentMatchup == null)
+                        {
+                            me.Add("@ParentMatchupId", null);
+                        }
+                        else
+                        {
+                            me.Add("@ParentMatchupId", entry.ParentMatchup.Id);
+                        }
+                        
+                        if (entry.TeamCompeting == null)
+                        {
+                            me.Add("@TeamCompetingId", null);
+                        }
+                        else
+                        {
+                            me.Add("@TeamCompetingId", entry.TeamCompeting.Id);
+                        }
+                        
                         me.Add("@id", 0, dbType: DbType.Int32, direction: ParameterDirection.Output);
 
-                        connection.Execute("dbo.spMatchupEntries_Insert", m, commandType: CommandType.StoredProcedure);
+                        connection.Execute("dbo.spMatchupEntries_Insert", me, commandType: CommandType.StoredProcedure);
 
                         entry.Id = me.Get<int>("@id");
                     }

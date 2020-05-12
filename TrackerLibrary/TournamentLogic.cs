@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Text;
 using System.Xml;
@@ -112,7 +113,7 @@ namespace TrackerLibrary
         {
             List<TeamModel> randomizedTeams = new List<TeamModel>();
 
-            return randomizedTeams;
+            return teams.AsQueryable().OrderBy(a => Guid.NewGuid()).ToList();
         }
     }
 }
