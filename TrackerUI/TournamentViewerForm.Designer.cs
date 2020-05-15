@@ -55,7 +55,6 @@
             this.headerLabel.Size = new System.Drawing.Size(214, 50);
             this.headerLabel.TabIndex = 0;
             this.headerLabel.Text = "Tournament:";
-            this.headerLabel.Click += new System.EventHandler(this.label1_Click);
             // 
             // tournamentName
             // 
@@ -67,7 +66,6 @@
             this.tournamentName.Size = new System.Drawing.Size(150, 50);
             this.tournamentName.TabIndex = 1;
             this.tournamentName.Text = "<none>";
-            this.tournamentName.Click += new System.EventHandler(this.label1_Click_1);
             // 
             // roundDropDown
             // 
@@ -78,7 +76,6 @@
             this.roundDropDown.Name = "roundDropDown";
             this.roundDropDown.Size = new System.Drawing.Size(205, 38);
             this.roundDropDown.TabIndex = 3;
-            this.roundDropDown.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
             // 
             // roundLabel
             // 
@@ -91,7 +88,6 @@
             this.roundLabel.Size = new System.Drawing.Size(94, 37);
             this.roundLabel.TabIndex = 4;
             this.roundLabel.Text = "Round";
-            this.roundLabel.Click += new System.EventHandler(this.roundLabel_Click);
             // 
             // unplayedOnlyCheckBox
             // 
@@ -127,7 +123,6 @@
             this.teamOneName.Size = new System.Drawing.Size(165, 37);
             this.teamOneName.TabIndex = 7;
             this.teamOneName.Text = "<team one>";
-            this.teamOneName.Click += new System.EventHandler(this.teamOneName_Click);
             // 
             // teamOneScoreLabel
             // 
@@ -140,7 +135,6 @@
             this.teamOneScoreLabel.Size = new System.Drawing.Size(82, 37);
             this.teamOneScoreLabel.TabIndex = 8;
             this.teamOneScoreLabel.Text = "Score";
-            this.teamOneScoreLabel.Click += new System.EventHandler(this.teamOneScoreLabel_Click);
             // 
             // teamOneScoreValue
             // 
@@ -148,7 +142,6 @@
             this.teamOneScoreValue.Name = "teamOneScoreValue";
             this.teamOneScoreValue.Size = new System.Drawing.Size(78, 35);
             this.teamOneScoreValue.TabIndex = 9;
-            this.teamOneScoreValue.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
             // teamTwoScoreValue
             // 
@@ -156,7 +149,6 @@
             this.teamTwoScoreValue.Name = "teamTwoScoreValue";
             this.teamTwoScoreValue.Size = new System.Drawing.Size(78, 35);
             this.teamTwoScoreValue.TabIndex = 12;
-            this.teamTwoScoreValue.TextChanged += new System.EventHandler(this.textBox1_TextChanged_1);
             // 
             // teamTwoScoreLabel
             // 
@@ -169,7 +161,6 @@
             this.teamTwoScoreLabel.Size = new System.Drawing.Size(82, 37);
             this.teamTwoScoreLabel.TabIndex = 11;
             this.teamTwoScoreLabel.Text = "Score";
-            this.teamTwoScoreLabel.Click += new System.EventHandler(this.label1_Click_3);
             // 
             // teamTwoName
             // 
@@ -182,7 +173,6 @@
             this.teamTwoName.Size = new System.Drawing.Size(165, 37);
             this.teamTwoName.TabIndex = 10;
             this.teamTwoName.Text = "<team two>";
-            this.teamTwoName.Click += new System.EventHandler(this.label2_Click);
             // 
             // versusLabel
             // 
@@ -195,7 +185,6 @@
             this.versusLabel.Size = new System.Drawing.Size(70, 37);
             this.versusLabel.TabIndex = 13;
             this.versusLabel.Text = "-VS-";
-            this.versusLabel.Click += new System.EventHandler(this.versusLabel_Click);
             // 
             // scoreButton
             // 
