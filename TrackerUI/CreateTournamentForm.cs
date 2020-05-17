@@ -40,11 +40,6 @@ namespace TrackerUI
             prizesListBox.DisplayMember = "PlaceName";
         }
 
-        private void CreateTournamentForm_Load(object sender, EventArgs e)
-        {
-
-        }
-
         private void createTournamentButton_Click(object sender, EventArgs e)
         {
             // Validate data

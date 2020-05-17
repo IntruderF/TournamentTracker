@@ -26,6 +26,31 @@ namespace TrackerLibrary
             CreateOtherRounds(model, rounds);
         }
 
+        private static List<MatchupModel> CreateFirstRound(int byes, List<TeamModel> teams)
+        {
+            List<MatchupModel> output = new List<MatchupModel>();
+            MatchupModel curr = new MatchupModel();
+
+            foreach (TeamModel team in teams)
+            {
+                curr.Entries.Add(new MatchupEntryModel { TeamCompeting = team });
+
+                if (byes > 0 || curr.Entries.Count > 1)
+                {
+                    curr.MatchupRound = 1;
+                    output.Add(curr);
+                    curr = new MatchupModel();
+
+                    if (byes > 0)
+                    {
+                        byes -= 1;
+                    }
+                }
+            }
+
+            return output;
+        }
+
         private static void CreateOtherRounds(TournamentModel model, int rounds)
         {
             int round = 2;
@@ -55,34 +80,9 @@ namespace TrackerLibrary
             }
         }
 
-        private static List<MatchupModel> CreateFirstRound(int byes, List<TeamModel> teams)
-        {
-            List<MatchupModel> output = new List<MatchupModel>();
-            MatchupModel curr = new MatchupModel();
-
-            foreach (TeamModel team in teams)
-            {
-                curr.Entries.Add(new MatchupEntryModel { TeamCompeting = team });
-
-                if (byes > 0 || curr.Entries.Count > 1)
-                {
-                    curr.MatchupRound = 1;
-                    output.Add(curr);
-                    curr = new MatchupModel();
-
-                    if (byes > 0)
-                    {
-                        byes -= 1;
-                    }
-                }
-            }
-
-            return output;
-        }
-
         private static int FindNumberOfByes(int rounds, int numberOfTeams)
         {
-            int output = 0;
+            int output;
             int totalTeams = 1;
 
             for (int i = 1; i <= rounds; i++)

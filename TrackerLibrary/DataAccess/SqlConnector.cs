@@ -240,7 +240,6 @@ namespace TrackerLibrary.DataAccess
                         team.TeamMembers = connection.Query<PersonModel>("dbo.spTeamMembers_GetByTeam", p, commandType: CommandType.StoredProcedure).ToList();
                     }
 
-                    
                     // Populate rounds
                     List<MatchupModel> matchups = connection.Query<MatchupModel>("dbo.spMatchups_GetByTournament", tId, commandType: CommandType.StoredProcedure).ToList();
 
