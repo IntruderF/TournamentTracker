@@ -102,6 +102,7 @@
             this.unplayedOnlyCheckBox.TabIndex = 5;
             this.unplayedOnlyCheckBox.Text = "Unplayed only";
             this.unplayedOnlyCheckBox.UseVisualStyleBackColor = true;
+            this.unplayedOnlyCheckBox.CheckedChanged += new System.EventHandler(this.unplayedOnlyCheckBox_CheckedChanged);
             // 
             // matchupListBox
             // 
@@ -203,6 +204,7 @@
             this.scoreButton.TabIndex = 14;
             this.scoreButton.Text = "Score";
             this.scoreButton.UseVisualStyleBackColor = true;
+            this.scoreButton.Click += new System.EventHandler(this.scoreButton_Click);
             // 
             // TournamentViewerForm
             // 
