@@ -501,7 +501,7 @@ namespace TrackerLibrary.DataAccess.TextHelpers
                     winner = m.Winner.Id.ToString();
                 }
 
-                lines.Add($"{ m.Id },{ ConvertMatchupEntryListToString(m.Entries) },{ m.Winner },{ m.MatchupRound }");
+                lines.Add($"{ m.Id },{ ConvertMatchupEntryListToString(m.Entries) },{ winner },{ m.MatchupRound }");
             }
 
             File.WriteAllLines(GlobalConfig.MatchupsFile.FullFilePath(), lines);
