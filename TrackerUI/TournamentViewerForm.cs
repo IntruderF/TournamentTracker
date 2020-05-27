@@ -25,9 +25,16 @@ namespace TrackerUI
 
             tournament = tournamentModel;
 
+            tournament.OnTournamentComplete += Tournament_OnTournamentComplete;
+
             WireUpLists();
 
             LoadFormData();
+        }
+
+        private void Tournament_OnTournamentComplete(object sender, DateTime e)
+        {
+            throw new NotImplementedException();
         }
 
         public void LoadFormData()

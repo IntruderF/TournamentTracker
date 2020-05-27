@@ -97,6 +97,20 @@ namespace TrackerLibrary.DataAccess
             model.UpdateMatchupToFile();
         }
 
+        public void CompleteTournament(TournamentModel model)
+        {
+            List<TournamentModel> tournaments = GlobalConfig.TournamentsFile
+                .FullFilePath()
+                .LoadFile()
+                .ConvertToTournamentModels();
+
+            tournaments.Remove(model);
+
+            tournaments.SaveToTournamentFile();
+
+            TournamentLogic.UpdateTournamentResults(model);
+        }
+
         public List<PersonModel> GetPerson_All()
         {
             return GlobalConfig.PeopleFile.FullFilePath().LoadFile().ConvertToPersonModels();
